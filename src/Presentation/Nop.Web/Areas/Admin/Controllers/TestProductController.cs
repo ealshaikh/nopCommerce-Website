@@ -62,6 +62,7 @@ public class TestProductController : BaseAdminController
 
         return View(testProducts);
     }
+    //for testing
 
 
     [HttpPost]
