@@ -173,6 +173,7 @@
                             });
                         </script>
                         @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.MenuBefore })
+                         @*this line is responsible to display the menu items *@
                         @await Html.PartialAsync("Menu")
 
                     </nav>

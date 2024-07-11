@@ -31,16 +31,16 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    @if (!closeConfigurationStepsCard)
+                  @*   @if (!closeConfigurationStepsCard)
                     {
                         <div class="row">
                             <div class="col-md-12">
                                 @await Html.PartialAsync("_ConfigurationSteps")
                             </div>
                         </div>
-                    }
+                    } *@
 
-                    @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.DashboardTop, additionalData = Model })
+                   @*  @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.DashboardTop, additionalData = Model })
                     @if (!Model.IsLoggedInAsVendor)
                     {
                         <div class="row">
@@ -48,7 +48,7 @@
                                 @await Component.InvokeAsync(typeof(NopCommerceNewsViewComponent))
                             </div>
                         </div>
-                    }
+                    } *@
 
                     @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.DashboardNewsAfter, additionalData = Model })
                     @if (!Model.IsLoggedInAsVendor && canManageOrders && canManageCustomers && canManageProducts && canManageReturnRequests)
