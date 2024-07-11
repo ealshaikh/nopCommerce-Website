@@ -50,7 +50,7 @@ public partial class RouteProvider : BaseRouteProvider, IRouteProvider
         endpointRouteBuilder.MapControllerRoute(name: "Logout",
             pattern: $"{lang}/logout/",
             defaults: new { controller = "Customer", action = "Logout" });
-
+        //TestProduct
         endpointRouteBuilder.MapControllerRoute(
         name: "Admin.TestProduct.List",
         pattern: $"{lang}/Admin/TestProduct/",

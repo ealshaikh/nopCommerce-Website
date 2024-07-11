@@ -34,24 +34,11 @@ public class TestProductController : BaseAdminController
 
     [HttpGet]
     [ActionName("List")]
-    //[Area("Admin")]
     public virtual async Task<IActionResult> List()
     {
 
-        if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProducts))
+        if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageTestProducts))
             return AccessDeniedView();
-
-        //var topLevelMenuItem = new SiteMapNode
-        //{
-        //    SystemName = "NewTopMenuItem",
-        //    Title = "New Top Menu Item",
-        //    ControllerName = "TestProduct",
-        //    ActionName = "Index",
-        //    IconClass = "fa fa-home",
-        //    Visible = true,
-        //    OpenUrlInNewTab = false
-        //};
-        //topLevelMenuItem.ChildNodes.Add(topLevelMenuItem);
 
         var testProducts = await _testProductRepository.GetAllTestProducts();
 
@@ -62,8 +49,6 @@ public class TestProductController : BaseAdminController
 
         return View(testProducts);
     }
-    //for testing
-
 
     [HttpPost]
     [ActionName("Create")]
@@ -72,7 +57,7 @@ public class TestProductController : BaseAdminController
     {
         try
         {
-            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProducts))
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageTestProducts))
                 return AccessDeniedView();
 
             await  _testProductRepository.CreateTestProduct(testProduct);
@@ -93,7 +78,7 @@ public class TestProductController : BaseAdminController
         try
         {
 
-            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProducts))
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageTestProducts))
                 return AccessDeniedView();
 
             await _testProductRepository.UpdateTestProduct(testProduct);
@@ -113,7 +98,7 @@ public class TestProductController : BaseAdminController
     //{
     //    try
     //    {
-    //        if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProducts))
+    //        if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageTestProducts))
     //            return AccessDeniedView();
 
     //        var testProduct = await _testProductRepository.GetByIdAsync(id);
@@ -140,7 +125,7 @@ public class TestProductController : BaseAdminController
     {
         try
         {
-            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProducts))
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageTestProducts))
                 return AccessDeniedView();
 
             var testProduct = await _testProductRepository.GetByIdAsync(id);
