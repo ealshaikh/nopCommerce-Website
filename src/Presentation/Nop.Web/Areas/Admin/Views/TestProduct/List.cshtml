@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Nop.Core.Domain.TestProduct.TestProduct>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<div class="d-flex align-items-center py-2">
+    <h1 class="pt-3 pl-4 mb-0">Test Product</h1>
+    <a class="btn btn-primary ml-auto mt-3 mr-4"> <i class="fas fa-plus-square"></i> Add new </a>
+</div>
+
+<div class="card card-default">
+    <div class="card-body">
+        <div id="products-grid_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dataTables_scroll">
+                        <div class="dataTables_scrollHead">
+                            <table class="table table-bordered table-hover table-striped dataTable no-footer">
+                                <thead>
+                                    <tr>
+                                        <th class="sorting_disabled text-center">#</th>
+                                        <th class="sorting_disabled">Image</th>
+                                        <th class="sorting_disabled">Product name</th>
+                                        <th class="sorting_disabled">Description</th>
+                                        <th class="sorting_disabled">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center">
+                                                @Html.DisplayFor(modelItem => item.ID)
+                                            </td>
+                                            <td>
+                                                <img src="@item.ImageUrl" width="100">
+                                            </td>
+                                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                            <td>
+                                                <a class="btn btn-secondary text-white" asp-action="Edit" asp-route-id="@item.ID">
+                                                    <i class="fas fa-pencil-alt"></i> Edit
+                                                </a>
+                                                <form asp-action="Delete" asp-route-id="@item.ID" method="post">
+                                                    <input type="submit" value="Delete" class="btn btn-danger" />
+                                                </form>
+
+                                                <form id="delete-selected-form" asp-controller="TestProduct" asp-action="Delete" method="post">
+                                                    <input type="hidden" id="selectedIds" name="selectedIds" value="" />
+                                                </form>
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#delete-selected').click(function (e) {
+            e.preventDefault();
+            var selectedIds = []; // Implement logic to get selected IDs
+            if (selectedIds.length === 0) {
+                showAlert('nothingSelectedAlert', '@T("Admin.Common.Alert.NothingSelected")');
+                return;
+            }
+            $('#selectedIds').val(selectedIds.join(","));
+            $('#delete-selected-form').submit();
+        });
+    });
+</script>
