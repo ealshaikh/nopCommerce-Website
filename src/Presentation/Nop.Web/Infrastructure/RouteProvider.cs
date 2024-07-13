@@ -52,10 +52,11 @@ public partial class RouteProvider : BaseRouteProvider, IRouteProvider
             defaults: new { controller = "Customer", action = "Logout" });
         //TestProduct
         endpointRouteBuilder.MapControllerRoute(
-        name: "Admin.TestProduct.List",
-        pattern: $"{lang}/Admin/TestProduct/",
-        defaults: new { area = "Admin", controller = "TestProduct", action = "Index" }
-         );
+         name: "Admin.TestProduct.List",
+          pattern: "Admin/TestProduct/",
+         defaults: new { area = "Admin", controller = "TestProduct", action = "Index" }
+             );
+
 
         endpointRouteBuilder.MapControllerRoute(
             name: "Admin.TestProduct.Create",
@@ -70,10 +71,11 @@ public partial class RouteProvider : BaseRouteProvider, IRouteProvider
         );
 
         endpointRouteBuilder.MapControllerRoute(
-        name: "Admin.TestProduct.Delete",
-        pattern: "Admin/TestProduct/Delete/{id}",
-        defaults: new { area = "Admin", controller = "TestProduct", action = "DeleteConfirmed" }
+            name: "Admin.TestProduct.Delete",
+            pattern: "Admin/TestProduct/Delete/{id}",
+            defaults: new { area = "Admin", controller = "TestProduct", action = "DeleteConfirmed" }
         );
+
 
         //shopping cart
         endpointRouteBuilder.MapControllerRoute(name: "ShoppingCart",
@@ -768,7 +770,7 @@ public partial class RouteProvider : BaseRouteProvider, IRouteProvider
         //we use it to invoke [CheckLanguageSeoCode] and give a chance to find a localized route
         endpointRouteBuilder.MapFallbackToController("FallbackRedirect", "Common");
 
-        
+
     }
 
     #endregion

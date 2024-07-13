@@ -12,7 +12,7 @@ public partial class StandardPermissionProvider : IPermissionProvider
     public static readonly PermissionRecord AccessAdminPanel = new() { Name = "Access admin area", SystemName = "AccessAdminPanel", Category = "Standard" };
     public static readonly PermissionRecord AllowCustomerImpersonation = new() { Name = "Admin area. Allow Customer Impersonation", SystemName = "AllowCustomerImpersonation", Category = "Customers" };
     public static readonly PermissionRecord ManageProducts = new() { Name = "Admin area. Manage Products", SystemName = "ManageProducts", Category = "Catalog" };
-    public static readonly PermissionRecord ManageTestProducts = new() {Name= "Admin area. Manage Test Products", SystemName = "TestProducts", Category = "Catalog" };
+    public static readonly PermissionRecord ManageTestProducts = new() {Name= "Admin area. Manage Test Products", SystemName = "ManageTestProducts", Category = "Catalog" };
     public static readonly PermissionRecord ManageCategories = new() { Name = "Admin area. Manage Categories", SystemName = "ManageCategories", Category = "Catalog" };
     public static readonly PermissionRecord ManageManufacturers = new() { Name = "Admin area. Manage Manufacturers", SystemName = "ManageManufacturers", Category = "Catalog" };
     public static readonly PermissionRecord ManageProductReviews = new() { Name = "Admin area. Manage Product Reviews", SystemName = "ManageProductReviews", Category = "Catalog" };

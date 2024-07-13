@@ -17,6 +17,7 @@
 }
 @if (!string.IsNullOrEmpty(url))
 {
+  
     <li class="nav-item">
 
         <a href="@url" @(isActive ? Html.Raw("class=\"nav-link active\"") : Html.Raw("class=\"nav-link\"")) @(Model.OpenUrlInNewTab ? Html.Raw(" target=\"_blank\"") : null)>
